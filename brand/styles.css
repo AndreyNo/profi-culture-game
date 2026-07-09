@@ -1,17 +1,18 @@
 :root {
   --profi: #fa2a48;
   --profi-deep: #e01e3c;
-  --profi-soft: #fff1f3;
-  --profi-mid: #ffd6dc;
+  --profi-soft: #f7ecee;
+  --profi-mid: #e8c5cb;
   --ink: #1a1a1a;
   --ink-soft: #5c5c5c;
-  --line: #ebebeb;
+  --line: #e4e2e1;
   --paper: #ffffff;
+  --canvas: #eceae9;
   --ok: #1a1a1a;
-  --miss-bg: #fff1f3;
+  --miss-bg: #f7ecee;
   --good-bg: #f4fbf6;
   --ok-bg: #fafafa;
-  --shadow: 0 12px 40px rgba(26, 26, 26, 0.06);
+  --shadow: 0 12px 40px rgba(26, 26, 26, 0.08);
   --font: "Manrope", system-ui, sans-serif;
   --radius: 16px;
 }
@@ -31,7 +32,7 @@ body {
 body {
   font-family: var(--font);
   color: var(--ink);
-  background: var(--paper);
+  background: var(--canvas);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -42,39 +43,9 @@ body {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-}
-
-.deco {
-  position: absolute;
-  border: 1.5px solid var(--profi-mid);
-  border-radius: 50%;
-  opacity: 0.55;
-}
-
-.d1 {
-  width: 320px;
-  height: 320px;
-  top: -80px;
-  right: -100px;
-}
-
-.d2 {
-  width: 180px;
-  height: 180px;
-  bottom: 8%;
-  left: -60px;
-  border-color: #f0f0f0;
-}
-
-.d3 {
-  width: 12px;
-  height: 12px;
-  background: var(--profi);
-  border: none;
-  border-radius: 50%;
-  top: 28%;
-  left: 12%;
-  opacity: 0.35;
+  background-image: url("pattern.svg");
+  background-size: 180px 135px;
+  background-repeat: repeat;
 }
 
 .app {
