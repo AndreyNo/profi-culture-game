@@ -11,6 +11,14 @@ const VALUES = {
   honesty: "Честность и ошибки",
 };
 
+/** Official value marks from the culture deck (slide 10) */
+const VALUE_ICONS = {
+  people: "icons/people.png",
+  sense: "icons/sense.png",
+  result: "icons/result.png",
+  drive: "icons/drive.png",
+};
+
 const ART = {
   intro: `
 <svg viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -104,6 +112,7 @@ const SCENES = [
     badgeClass: "coral",
     title: "Найм без компромиссов",
     art: "hire",
+    icon: "people",
     situation:
       "В команду срочно нужен человек. Есть кандидат «на троечку» — закроет дыру сейчас. Сильный кандидат появится только через месяц.",
     choices: [
@@ -140,6 +149,7 @@ const SCENES = [
     badgeClass: "lilac",
     title: "Сначала «зачем?»",
     art: "why",
+    icon: "sense",
     situation:
       "Тимлид просит срочно сделать фичу «как у конкурентов». Дедлайн — послезавтра. Ты не до конца понимаешь, зачем она пользователям.",
     choices: [
@@ -176,6 +186,7 @@ const SCENES = [
     badgeClass: "mint",
     title: "Эффект, не суета",
     art: "ship",
+    icon: "result",
     situation:
       "Есть идея для продукта. Можно две недели полировать презентацию для всех стейкхолдеров — или за три дня выкатить простой эксперимент на пользователей.",
     choices: [
@@ -212,6 +223,7 @@ const SCENES = [
     badgeClass: "",
     title: "Горим — без надрыва",
     art: "drive",
+    icon: "drive",
     situation:
       "Важный релиз. Коллега пишет в полночь: «давай ещё пару часов, надо дожать». Ты уже вымотан, завтра важная встреча.",
     choices: [
@@ -379,8 +391,12 @@ function renderScene() {
     )
     .join("");
 
+  const artHtml = scene.icon
+    ? `<div class="value-icon-wrap"><img class="value-icon" src="${VALUE_ICONS[scene.icon]}" alt="" width="120" height="120" /></div>`
+    : `<div class="scene-art">${ART[scene.art]}</div>`;
+
   swapStage(`
-    <div class="scene-art">${ART[scene.art]}</div>
+    ${artHtml}
     <span class="badge ${scene.badgeClass}">${scene.badge}</span>
     <h2>${scene.title}</h2>
     <div class="situation">${scene.situation}</div>
@@ -432,9 +448,12 @@ function onChoice(choiceIndex) {
 
   const icons = { good: "✓", ok: "~", miss: "✗" };
   const slot = document.getElementById("feedbackSlot");
+  const valueIcon = scene.icon
+    ? `<img class="value-chip-icon" src="${VALUE_ICONS[scene.icon]}" alt="" width="18" height="18" />`
+    : "";
   slot.innerHTML = `
     <div class="feedback ${choice.verdict}">
-      <div class="value-chip">${scene.value}</div>
+      <div class="value-chip">${valueIcon}${scene.value}</div>
       <div class="feedback-title">${icons[choice.verdict]} ${choice.title}</div>
       <p>${choice.feedback}</p>
       <div class="actions">

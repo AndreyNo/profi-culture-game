@@ -160,6 +160,21 @@ body {
   height: auto;
 }
 
+.value-icon-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0 18px;
+  min-height: 120px;
+}
+
+.value-icon {
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  display: block;
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -362,7 +377,7 @@ h2 {
 .value-chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   color: var(--profi);
   font-weight: 700;
   font-size: 0.78rem;
@@ -371,11 +386,14 @@ h2 {
 }
 
 .value-chip::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--profi);
+  content: none;
+}
+
+.value-chip-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .traits {
