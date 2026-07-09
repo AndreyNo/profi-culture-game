@@ -4,18 +4,28 @@
 
 **Играть онлайн:** https://andreyno.github.io/profi-culture-game/
 
+**Brand-версия (белый + красный Профи.ру):** [`brand/index.html`](brand/index.html)  
+Онлайн: https://andreyno.github.io/profi-culture-game/brand/
+
 Репозиторий: https://github.com/AndreyNo/profi-culture-game
 
-## Как открыть локально
+## Две версии
 
-Открой `index.html` в браузере (двойной клик) или из папки:
+| | Мультяшная | Brand |
+|---|---|---|
+| Путь | `index.html` | `brand/index.html` |
+| Стиль | яркая, цветная | белый фон, `#FA2A48`, логотип |
+| Геймплей | одинаковый | одинаковый |
+
+## Как открыть локально
 
 ```bash
 # PowerShell
 start index.html
+start brand/index.html
 ```
 
-Либо локальный сервер:
+Или локальный сервер:
 
 ```bash
 npx --yes serve .
