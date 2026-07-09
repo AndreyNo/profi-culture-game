@@ -214,13 +214,13 @@ h2 {
 
 .situation::before {
   content: "Ситуация";
-  display: inline-block;
+  display: block;
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--profi);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .choices {
